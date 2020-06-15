@@ -1,1 +1,1 @@
-web: gunicorn miningjournal.wsgi
+web: gunicorn journalmining.wsgi
