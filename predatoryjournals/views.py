@@ -9,3 +9,9 @@ def predatoryjournals_list(request):
     journals = Listing.objects.filter(journaltitle__contains='Journal')
     return render(request, 'predatoryjournals/predatoryjournals.html',{'journals' : journals})
 
+from django.shortcuts import render
+
+
+def foo(request):
+    data = {'blah', 'blaz'}
+    return render(request, 'predatoryjournals/home.html', {'data': data})

@@ -22,7 +22,7 @@ class Listing(models.Model):
         self.added_date = timezone.now()
         self.save()
 
-    #returns string representation of the object
+    # returns string representation of the object
     def __str__(self):
         return self.journaltitle
 

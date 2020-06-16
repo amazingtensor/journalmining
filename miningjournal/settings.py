@@ -34,6 +34,11 @@ ALLOWED_HOSTS = ['miningjournal.herokuapp.com', 'miningjournal-sem.herokuapp.com
 # Application definition
 
 # TODO: after creating application (e.g. /predatoryjournals, need to tell Django to use it
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+
+# Application definition
+
+# After creating application (e.g. /predatoryjournals), need to tell Django to use it
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
