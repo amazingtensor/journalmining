@@ -1,1 +1,1 @@
-web: gunicorn miningjournal.wsgi
+web: gunicorn miningjournal.wsgi --log-file -

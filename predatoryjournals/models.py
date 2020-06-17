@@ -1,9 +1,9 @@
+# Django models stored in DB
+# Define object properties and methods (class is blueprint for objects)
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
-# Django models stored in DB
-# Define object properties and methods (class is blueprint for objects)
 
 class Listing(models.Model):
     # LISTING_ATTRIBUTES = [
@@ -22,10 +22,6 @@ class Listing(models.Model):
         self.added_date = timezone.now()
         self.save()
 
-    #returns string representation of the object
+    # returns string representation of the object
     def __str__(self):
         return self.journaltitle
-
-
-
-

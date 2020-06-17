@@ -3,7 +3,7 @@ Mining and indexing for predatory journal lists | Django | Elasticsearch deploye
 
 ## Directory 
 .                           # Top level project folder. You are here.
-├── journalmining                   # Main site app
+├── journalmining           # Main site app that with server settings and main routes
 └── README.md               # Instructions and info are on this README.
 
 ## Instructions for getting started

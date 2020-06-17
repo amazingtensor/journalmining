@@ -1,4 +1,6 @@
 django>=3.0,<3.1
 django-heroku
+dj-database-url
 gunicorn
 requests
+psycopg2-binary

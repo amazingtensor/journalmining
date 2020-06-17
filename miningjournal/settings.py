@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+
+import dj_database_url
 import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,18 +24,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's4=wo-acwr=ztv8w*b9^(d=hm@ploeffvh#@hg9errscd(bafd'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# TODO: set to Heroku
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 # Application definition
 
-# TODO: after creating application (e.g. /predatoryjournals, need to tell Django to use it
+# After creating application (e.g. /predatoryjournals), need to tell Django to use it
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,15 +80,17 @@ WSGI_APPLICATION = 'miningjournal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', # Django v1.9 and higher
-        'NAME': 'miningjournal',
-        'USER': 'local',
-        'PASSWORD': 'localuser1!',
+        'ENGINE': 'django.db.backends.postgresql',  # Django v1.9 and higher
+        'NAME': 'miningjournal', # local value. updated to dj_database_url.config in the deployment environment
+        'USER': os.getenv('DB_USERNAME'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': '5432', # defaults to port 5432
+        'PORT': '5432',  # defaults to port 5432 if empty
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -127,4 +130,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 django_heroku.settings(locals())

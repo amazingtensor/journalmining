@@ -20,11 +20,12 @@
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+# Legacy project format (.ipr/.iml/.iws files)
+*.iws
+*.ipr
+*.iml
 
 venv
 *.pyc
 staticfiles
 .env
-db.sqlite3
-getting-started/*
-data.json
