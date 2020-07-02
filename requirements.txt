@@ -1,6 +1,7 @@
 django>=3.0,<3.1
 django-heroku
 dj-database-url
+elasticsearch>=7.0.0,<8.0.0 # Elasticsearch 7.x
 gunicorn
 requests
 psycopg2-binary
